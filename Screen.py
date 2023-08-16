@@ -225,7 +225,7 @@ def Start_Screen()->bool:
                 run = False
                 return False
 
-        bg = pygame.image.load("balls/background3.png")
+        bg = pygame.image.load("balls/background4.png")
         screen.blit(bg,(0,0))
 
         for btn in btns:
