@@ -23,11 +23,9 @@ def update_location(game_state):
     topY = game_state["rotated_arrow"].get_rect(
         center=(consts.ARROW_MIDBOTTOM_X, consts.ARROW_MIDBOTTOM_Y)).y
     rotation = (game_state["mouse_angle"]-90)/46
-    print(rotation)
     radios = 100
     mid = (consts.ARROW_MIDBOTTOM_X - consts.BUBBLE_RADIUS,consts.ARROW_MIDBOTTOM_Y)
 
-    print(math.cos(rotation),math.sin(rotation))
 
     X = mid[0] - (math.sin(rotation)*radios)+30
     Y = mid[1] - math.cos(rotation)*radios - 30
