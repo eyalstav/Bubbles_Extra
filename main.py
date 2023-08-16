@@ -24,7 +24,8 @@ run = True
 def main():
     pygame.init()
 
-    Screen.Start_Screen()
+    if not Screen.Start_Screen():
+        return
 
 
     while state["is_window_open"]:

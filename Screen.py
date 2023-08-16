@@ -217,12 +217,13 @@ btns = []
 btns.append(Button(30, 455, 200, 50, 'EASY', easy))
 btns.append(Button(260, 455, 200, 50, 'MEDIUM', med))
 btns.append(Button(490, 455, 200, 50, 'HARD', hard))
-def Start_Screen():
+def Start_Screen()->bool:
     global run
     while run:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+                return False
 
         bg = pygame.image.load("balls/background3.png")
         screen.blit(bg,(0,0))
@@ -231,3 +232,4 @@ def Start_Screen():
             btn.process()
 
         pygame.display.flip()
+    return True

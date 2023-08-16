@@ -22,18 +22,20 @@ def update_location(game_state):
         center=(consts.ARROW_MIDBOTTOM_X, consts.ARROW_MIDBOTTOM_Y)).x
     topY = game_state["rotated_arrow"].get_rect(
         center=(consts.ARROW_MIDBOTTOM_X, consts.ARROW_MIDBOTTOM_Y)).y
-    rotation = game_state["mouse_angle"]*0.02
-    radios = 120
+    rotation = (game_state["mouse_angle"]-90)/46
+    print(rotation)
+    radios = 100
     mid = (consts.ARROW_MIDBOTTOM_X - consts.BUBBLE_RADIUS,consts.ARROW_MIDBOTTOM_Y)
 
     print(math.cos(rotation),math.sin(rotation))
 
-    X = mid[0] + math.cos(rotation)*radios+30
-    Y = mid[1] + math.sin(rotation)*radios
-
+    X = mid[0] - (math.sin(rotation)*radios)+30
+    Y = mid[1] - math.cos(rotation)*radios - 30
+    c = 0
     for b in stack:
-        b["center_x"] = X
+        b["center_x"] = X + c*50
         b["center_y"] = Y
+        c+=1
 
 
 def add_bubble(col):
